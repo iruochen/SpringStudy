@@ -9,8 +9,8 @@ public class SpringTest {
 
     /**
      * 测试 scope
-     * singleton：单一对象
-     * prototype：多个对象
+     * singleton：单一对象，加载配置文件、创建 Spring 容器时创建 bean
+     * prototype：多个对象，执行 getBran()方法 时创建 bean
      */
     @Test
     public void test1() {
