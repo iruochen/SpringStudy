@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--<bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl"></bean>-->
@@ -13,10 +14,14 @@
     <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
 
     <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl"></bean>
+
+    <!--
     <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl">
-        <!--userDao 注入到 userService-->
+        &lt;!&ndash;userDao 注入到 userService&ndash;&gt;
         <property name="userDao" ref="userDao"></property>
     </bean>
+    -->
 
-    <!--在 Spring 容器中，将 UserDao 设置到 UserService 内部-->
+    <!--p命名空间快捷注入-->
+    <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl" p:userDao-ref="userDao"/>
 </beans>

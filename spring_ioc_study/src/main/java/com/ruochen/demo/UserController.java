@@ -9,9 +9,5 @@ public class UserController {
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = (UserService) app.getBean("userService");
         userService.save();
-
-        // 不是从容器拿的 userService，会报错空指针异常
-        // UserService userService = new UserServiceImpl();
-        // userService.save();
     }
 }
