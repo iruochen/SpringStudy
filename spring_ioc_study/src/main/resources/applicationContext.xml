@@ -59,6 +59,7 @@
     <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl">
         &lt;!&ndash;userDao 注入到 userService&ndash;&gt;
         &lt;!&ndash;
+            set 方式注入
             name="userDao" 中 userName 对应 service 内部对应属性名
             ref="userDao" 代表引用容器中 bean 的 id
         &ndash;&gt;
