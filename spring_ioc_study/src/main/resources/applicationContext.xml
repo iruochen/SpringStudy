@@ -77,6 +77,13 @@
         -->
         <constructor-arg name="userDao" ref="userDao"></constructor-arg>
     </bean>
+    <bean id="userService2" class="com.ruochen.service.impl.UserServiceImpl">
+        <!--
+            name="userDao" 中 userName 对应 构造内部参数名
+            ref="userDao" 代表引用容器中 bean 的 id
+        -->
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
 
     <!--引入其他配置文件-->
     <import resource="applicationContext-user.xml"/>
