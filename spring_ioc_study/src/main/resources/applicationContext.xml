@@ -9,6 +9,9 @@
     <!--<bean id="userDao" class="com.ruochen.factory.StaticFactory" factory-method="getUserDao"></bean>-->
 
     <!--工厂实例方法实例化-->
-    <bean id="factory" class="com.ruochen.factory.DynamicFactory"></bean>
-    <bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>
+    <!--<bean id="factory" class="com.ruochen.factory.DynamicFactory"></bean>-->
+    <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
+
+    <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl"></bean>
+    <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl"></bean>
 </beans>
