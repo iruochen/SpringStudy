@@ -1,5 +1,7 @@
 package com.ruochen.test;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
 
@@ -7,6 +9,22 @@ import java.beans.PropertyVetoException;
 import java.sql.Connection;
 
 public class DataSourceTest {
+    @Test
+    // 测试手动创建 druid 数据源
+    public void test2() throws Exception{
+        // 创建数据源对象
+        DruidDataSource dataSource = new DruidDataSource();
+        // 设置数据源的基本连接数据
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/db1");
+        dataSource.setUsername("root");
+        dataSource.setPassword("ruochen666");
+        DruidPooledConnection connection = dataSource.getConnection();
+        System.out.println(connection);
+        // 归还资源
+        connection.close();
+    }
+
     @Test
     // 测试手动创建 c3p0 数据源
     public void test1() throws Exception {
