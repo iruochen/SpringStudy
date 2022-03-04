@@ -13,5 +13,10 @@
     <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
 
     <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl"></bean>
-    <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl"></bean>
+    <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl">
+        <!--userDao 注入到 userService-->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <!--在 Spring 容器中，将 UserDao 设置到 UserService 内部-->
 </beans>
