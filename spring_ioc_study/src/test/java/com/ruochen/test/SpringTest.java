@@ -17,6 +17,6 @@ public class SpringTest {
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserDao userDao1 = (UserDao) app.getBean("userDao");
         System.out.println(userDao1);
-        ((ClassPathXmlApplicationContext) app).close();
+//        ((ClassPathXmlApplicationContext) app).close();
     }
 }
