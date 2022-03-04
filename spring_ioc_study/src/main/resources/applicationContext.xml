@@ -77,4 +77,8 @@
         -->
         <constructor-arg name="userDao" ref="userDao"></constructor-arg>
     </bean>
+
+    <!--引入其他配置文件-->
+    <import resource="applicationContext-user.xml"/>
+    <import resource="applicationContext-product.xml"/>
 </beans>

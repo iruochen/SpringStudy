@@ -1,0 +1,14 @@
+# Spring 重点配置
+- `<bean>` 标签
+  - id 属性：在容器中Bean实例的唯一标识，不允许重复
+  - class 属性：要实例化的Bean的全限定名
+  - scope 属性：Bean的作用范围，常用是 `singleton`(默认) 和 `prototype`
+  - `<property>` 标签：属性注入
+    - name 属性：属性名称
+    - value 属性：注入的普通属性值
+    - ref 属性：注入的对象引用值
+    - `<list>` 标签
+    - `<map>` 标签
+    - `<properties>` 标签
+  - `<constructor-arg>` 标签
+- `<import>` 标签：导入其他的 Spring 文件
