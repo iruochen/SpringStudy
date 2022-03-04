@@ -3,5 +3,5 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl" scope="prototype"></bean>
+    <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl" init-method="init" destroy-method="destroy"></bean>
 </beans>
