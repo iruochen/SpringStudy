@@ -13,10 +13,46 @@
     <!--<bean id="factory" class="com.ruochen.factory.DynamicFactory"></bean>-->
     <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
 
+    <!--
     <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl">
-        <!--普通数据类型注入-->
+        &lt;!&ndash;普通数据类型注入&ndash;&gt;
         <property name="username" value="ruochen"/>
         <property name="age" value="22"/>
+    </bean>
+    -->
+
+    <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl">
+        <!--List数据类型注入-->
+        <property name="strList">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <!--Map数据类型注入-->
+        <property name="userMap">
+            <map>
+                <entry key="u1" value-ref="user1"></entry>
+                <entry key="u2" value-ref="user2"></entry>
+            </map>
+        </property>
+        <!--Property数据类型注入-->
+        <property name="properties">
+            <props>
+                <prop key="p1">v1</prop>
+                <prop key="p2">v2</prop>
+                <prop key="p3">v3</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="user1" class="com.ruochen.domain.User">
+        <property name="name" value="tom"></property>
+        <property name="addr" value="beijing"></property>
+    </bean>
+    <bean id="user2" class="com.ruochen.domain.User">
+        <property name="name" value="lucy"></property>
+        <property name="addr" value="tianjin"></property>
     </bean>
 
     <!--
