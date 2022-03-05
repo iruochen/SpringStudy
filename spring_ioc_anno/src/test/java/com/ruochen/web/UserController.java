@@ -10,5 +10,6 @@ public class UserController {
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = app.getBean(UserService.class);
         userService.save();
+        ((ClassPathXmlApplicationContext) app).close();
     }
 }
