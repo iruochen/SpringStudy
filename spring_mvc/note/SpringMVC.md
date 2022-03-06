@@ -18,3 +18,4 @@
 - DispatcherServlet 将 ModelAndView 传给 ViewResolver 视图解析器
 - ViewResolver 解析后返回具体 View
 - DispatcherServlet 根据 View 进行渲染视图（即将模型数据填充至视图中）。DispatcherServlet 响应用户
+
