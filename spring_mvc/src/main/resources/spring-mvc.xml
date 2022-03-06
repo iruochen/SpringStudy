@@ -6,6 +6,10 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--Controller 组件扫描-->
-    <context:component-scan base-package="com.ruochen.controller"/>
+    <!--<context:component-scan base-package="com.ruochen.controller"/>-->
 
+    <context:component-scan base-package="com.ruochen">
+        <!--扫描 Controller 注解-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 </beans>
