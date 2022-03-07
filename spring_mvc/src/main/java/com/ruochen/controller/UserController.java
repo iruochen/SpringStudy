@@ -1,5 +1,8 @@
 package com.ruochen.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ruochen.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +17,26 @@ import java.io.IOException;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick9")
+    @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
+    public String save9() throws JsonProcessingException {
+        User user = new User();
+        user.setUsername("ruochen");
+        user.setAge(22);
+        // 使用 json 转换工具将对象转换为 json 格式字符串
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(user);
+        return json;
+    }
+
+    @RequestMapping(value = "/quick8")
+    @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
+    public String save8() {
+        return "{\"username\": \"zhangsan\", \"age\": 18}";
+    }
 
     @RequestMapping(value = "/quick7")
-    @ResponseBody
+    @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
     public String save7() {
         return "hello ruochen2";
     }
