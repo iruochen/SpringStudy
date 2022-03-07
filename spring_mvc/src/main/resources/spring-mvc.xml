@@ -34,7 +34,7 @@
     -->
 
     <!--mvc的注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--开放资源的访问（一般是静态资源）-->
     <!--
@@ -48,5 +48,14 @@
     <!--另一种配置方式-->
     <!--访问时默认找对应的匹配地址，如果找不到则交由原始容器（tomcat）处理-->
     <mvc:default-servlet-handler/>
+
+    <!--声明转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.ruochen.converter.DateConverter"></bean>
+            </list>
+        </property>
+    </bean>
 
 </beans>

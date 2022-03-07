@@ -78,6 +78,13 @@
 - 配置 filter
 - 配置后仍乱码，tomcat 设置 `VM options` 添加 `-Dfile.encoding=UTF-8`，重启 tomcat
 
+## 自定义类型转换器
+- 内置类型转换器：如客户端提交的字符串转换为int型进行参数设置
+- 自定义转换器：如日期等
+- 开发步骤
+  - 定义转换器实现 Converter 接口
+  - 在配置文件中声明转换器
+  - 在 <annotation-driven> 中引用转换器
 
     
 
