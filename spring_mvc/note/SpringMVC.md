@@ -52,6 +52,12 @@
 - 集合类型参数
   - 获得集合参数时，要将集合参数包装到一个POJOz中才可以
   - 当使用ajax提交时，可以指定contextType为json格式，那么在方法参数位置使用 `@RequestBody` 可以直接接收集合数据而无需使用POJO进行包装
+- 参数绑定注解 @RequestParma
+  - 当请求的参数名称与 Controller 的业务方法参数名称不一致时，需要通过 @RequestParam 注解显示的绑定
+  - 参数
+    - value：与请求参数名称匹配
+    - required：是否必须包含参数，默认是true，提交时如果没有此参数则拨错
+    - defaultValue：当没有指定请求参数时，则使用指定的默认值赋值
   
 ## POST 请求乱码问题
 - 配置 filter
