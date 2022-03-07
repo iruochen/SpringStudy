@@ -36,6 +36,17 @@
     <!--mvc的注解驱动-->
     <mvc:annotation-driven/>
 
+    <!--开放资源的访问（一般是静态资源）-->
+    <!--
+        mapping：映射地址
+        location：哪个目录下的资源对外开放
+    -->
+    <!--
     <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/img/**" location="/img/"/>
+    -->
+    <!--另一种配置方式-->
+    <!--访问时默认找对应的匹配地址，如果找不到则交由原始容器（tomcat）处理-->
+    <mvc:default-servlet-handler/>
 
 </beans>
