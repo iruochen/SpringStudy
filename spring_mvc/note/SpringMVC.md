@@ -44,6 +44,7 @@
   - Controller 中的业务方法的参数名称要与请求参数的name一致，参数值会自动映射匹配
   - `http://localhost:8080/user/quick11?username=ruochen&age=22`
 - POJO 类型参数
+  - Controller 中的业务方法的POJO参数是属性名与请求参数的name一致，参数值会自动映射匹配
 - 数组类型参数
 - 集合类型参数
 
