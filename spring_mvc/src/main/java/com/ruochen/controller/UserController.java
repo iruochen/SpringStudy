@@ -3,6 +3,7 @@ package com.ruochen.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ruochen.domain.User;
+import com.ruochen.domain.VO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick14")
+    @ResponseBody
+    public void save14(VO vo) {
+        System.out.println(vo);
+    }
+
     @RequestMapping(value = "/quick13")
     @ResponseBody
     public void save13(String[] strs) {

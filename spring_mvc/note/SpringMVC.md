@@ -50,5 +50,6 @@
   - Controller 中的业务方法的数组名称与请求参数的name一致，参数值会自动映射匹配
   - `http://localhost:8080/user/quick13?strs=aaa&&strs=bbb&strs=ccc`
 - 集合类型参数
+  - 获得集合参数时，要将集合参数包装到一个POJOz中才可以
 
 
