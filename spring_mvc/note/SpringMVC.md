@@ -20,11 +20,15 @@
 - DispatcherServlet 根据 View 进行渲染视图（即将模型数据填充至视图中）。DispatcherServlet 响应用户
 
 ## SpringMVC 数据响应方式
-- 页面跳转
-  - 直接返回字符串：此种方式会将返回的字符串与视图解析器的前后缀拼接后跳转
-  - 通过 ModelAndView 对象返回
-- 回写数据
-  - 直接返回字符串
-  - 返回对象或集合
+### 页面跳转
+- 直接返回字符串：此种方式会将返回的字符串与视图解析器的前后缀拼接后跳转
+- 通过 ModelAndView 对象返回
+### 回写数据
+- 直接返回字符串
+  - 传统：`response.getWriter().print("hello world")`
+  - Spring 框架
+    - 注入 response 对象，通过 `response.getWriter().print("hello world")` 回写数据，此时不需要视图跳转，业务返回值为 void
+    - 将需要回写的字符串直接返回，添加 `@ResponseBody` 注解
+- 返回对象或集合
 
 

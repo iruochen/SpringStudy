@@ -4,13 +4,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
+
+    @RequestMapping(value = "/quick7")
+    @ResponseBody
+    public String save7() {
+        return "hello ruochen2";
+    }
+
+    @RequestMapping(value = "/quick6")
+    public void save6(HttpServletResponse response) throws IOException {
+        response.getWriter().print("hello ruochen");
+    }
+
     @RequestMapping(value = "/quick5")
     public String save5(HttpServletRequest request) {
         // 不常用
