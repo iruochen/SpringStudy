@@ -23,6 +23,7 @@
 ### 页面跳转
 - 直接返回字符串：此种方式会将返回的字符串与视图解析器的前后缀拼接后跳转
 - 通过 ModelAndView 对象返回
+
 ### 回写数据
 - 直接返回字符串
   - 传统：`response.getWriter().print("hello world")`
@@ -36,5 +37,14 @@
     - 使用 `<mvc:annotaion-driven>` 自动加载 `RequestMappingHandlerMapping`(处理器映射器) 和 `RequestMappingHandlerAdapter`(处理器适配器)
     - 可以在 `spring-mvc.xml` 文件中使用 `<mvc:annotation-driven>` 替代注解处理器和配置器的配置
     - 同时使用 `<mvc:annotation-driven>` 默认底层就会集成 jackson 进行对象或集合的 json 格式字符串的转换
+
+## SpringMVC 获得请求数据
+### 获得请求参数
+- 基本类型参数
+  - Controller 中的业务方法的参数名称要与请求参数的name一致，参数值会自动映射匹配
+  - `http://localhost:8080/user/quick11?username=ruochen&age=22`
+- POJO 类型参数
+- 数组类型参数
+- 集合类型参数
 
 

@@ -17,6 +17,13 @@ import java.io.IOException;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick11")
+    @ResponseBody
+    public void save11(String username, int age) {
+        System.out.println(username);
+        System.out.println(age);
+    }
+
     @RequestMapping(value = "/quick10")
     @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
     // 期望 Spring 自动将 User 转换为 json 格式字符串
