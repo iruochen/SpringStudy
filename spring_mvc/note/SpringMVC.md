@@ -58,9 +58,26 @@
     - value：与请求参数名称匹配
     - required：是否必须包含参数，默认是true，提交时如果没有此参数则拨错
     - defaultValue：当没有指定请求参数时，则使用指定的默认值赋值
-  
+- 获得 Restful 风格的参数
+  - **Restful** 风格的请求是使用 "url+请求方式" 表示一次请求目的的，HTTP 协议里面四个表示操作方式的动词如下：
+    - GET：用于获取资源
+    - POST：用于新建资源
+    - PUT：用于更新资源
+    - DELETE：用于删除资源
+  - 例如
+    - `/user/1 GET`：得到 id=1 的 user
+    - `/user/1 DELETE`：删除 id=1 的 user
+    - `/user/1 PUT`：更新 id=1 的 user
+    - `/user POST`：新增 user
+  - 上述 url 地址 `/user/1` 中的 1 就是要获得的请求参数，在 SpringMVC 中可以使用占位符进行参数绑定。地址 `/user/1` 可以写成 `/user/{id}`，占位符{id}对应的就是1的值
+  - 在业务方法中我们可以使用 @PathVariable 注解进行占位符的匹配获取工作
+
+
+
 ## POST 请求乱码问题
 - 配置 filter
 - 配置后仍乱码，tomcat 设置 `VM options` 添加 `-Dfile.encoding=UTF-8`，重启 tomcat
+
+
     
 
