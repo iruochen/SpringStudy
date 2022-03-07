@@ -13,10 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick13")
+    @ResponseBody
+    public void save13(String[] strs) {
+        System.out.println(Arrays.asList(strs));
+    }
+
     @RequestMapping(value = "/quick12")
     @ResponseBody
     public void save12(User user) {

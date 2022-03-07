@@ -45,7 +45,10 @@
   - `http://localhost:8080/user/quick11?username=ruochen&age=22`
 - POJO 类型参数
   - Controller 中的业务方法的POJO参数是属性名与请求参数的name一致，参数值会自动映射匹配
+  - `http://localhost:8080/user/quick12?username=ruo&age=11`
 - 数组类型参数
+  - Controller 中的业务方法的数组名称与请求参数的name一致，参数值会自动映射匹配
+  - `http://localhost:8080/user/quick13?strs=aaa&&strs=bbb&strs=ccc`
 - 集合类型参数
 
 
