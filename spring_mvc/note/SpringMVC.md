@@ -52,5 +52,9 @@
 - 集合类型参数
   - 获得集合参数时，要将集合参数包装到一个POJOz中才可以
   - 当使用ajax提交时，可以指定contextType为json格式，那么在方法参数位置使用 `@RequestBody` 可以直接接收集合数据而无需使用POJO进行包装
+  
+## POST 请求乱码问题
+- 配置 filter
+- 配置后仍乱码，tomcat 设置 `VM options` 添加 `-Dfile.encoding=UTF-8`，重启 tomcat
     
 
