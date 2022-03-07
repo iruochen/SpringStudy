@@ -1,6 +1,7 @@
 package com.ruochen.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,6 +9,21 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick4")
+    public String save4(Model model) {
+        model.addAttribute("username", "若尘");
+        return "success";
+    }
+
+    @RequestMapping(value = "/quick3")
+    public ModelAndView save3(ModelAndView modelAndView) {
+        // 设置模型数据
+        modelAndView.addObject("username", "ruochen2");
+        // 设置视图名称
+        modelAndView.setViewName("success");
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/quick2")
     public ModelAndView save2() {
         /*
