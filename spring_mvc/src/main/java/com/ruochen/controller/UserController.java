@@ -17,6 +17,16 @@ import java.io.IOException;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick10")
+    @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
+    // 期望 Spring 自动将 User 转换为 json 格式字符串
+    public User save10() {
+        User user = new User();
+        user.setUsername("ruochen");
+        user.setAge(22);
+        return user;
+    }
+
     @RequestMapping(value = "/quick9")
     @ResponseBody  // 告知SpringMVC框架 不进行视图跳转 直接进行数据响应
     public String save9() throws JsonProcessingException {
