@@ -30,5 +30,11 @@
     - 注入 response 对象，通过 `response.getWriter().print("hello world")` 回写数据，此时不需要视图跳转，业务返回值为 void
     - 将需要回写的字符串直接返回，添加 `@ResponseBody` 注解
 - 返回对象或集合
+  - 方式一：`spring-mvc.xml` 中进行配置
+  - 方式二：使用 MVC 的注解驱动代替方式一配置 `<mvc:annotation-driven/>`
+    - 在 SpringMVC 的各个组件中，**处理器映射器**、**处理器适配器**、**视图解析器** 称为 SpringMVC 的三大组件
+    - 使用 `<mvc:annotaion-driven>` 自动加载 `RequestMappingHandlerMapping`(处理器映射器) 和 `RequestMappingHandlerAdapter`(处理器适配器)
+    - 可以在 `spring-mvc.xml` 文件中使用 `<mvc:annotation-driven>` 替代注解处理器和配置器的配置
+    - 同时使用 `<mvc:annotation-driven>` 默认底层就会集成 jackson 进行对象或集合的 json 格式字符串的转换
 
 
