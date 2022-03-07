@@ -51,5 +51,6 @@
   - `http://localhost:8080/user/quick13?strs=aaa&&strs=bbb&strs=ccc`
 - 集合类型参数
   - 获得集合参数时，要将集合参数包装到一个POJOz中才可以
-
+  - 当使用ajax提交时，可以指定contextType为json格式，那么在方法参数位置使用 `@RequestBody` 可以直接接收集合数据而无需使用POJO进行包装
+    
 
