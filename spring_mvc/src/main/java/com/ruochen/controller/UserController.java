@@ -6,9 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick5")
+    public String save5(HttpServletRequest request) {
+        // 不常用
+        request.setAttribute("username", "ruochen5");
+        return "success";
+    }
+
     @RequestMapping(value = "/quick4")
     public String save4(Model model) {
         model.addAttribute("username", "若尘");
