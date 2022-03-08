@@ -20,6 +20,18 @@ import java.util.List;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick21")
+    @ResponseBody
+    public void save21(@CookieValue(value = "JSESSIONID") String jsessionId) {
+        System.out.println(jsessionId);
+    }
+
+    @RequestMapping(value = "/quick20")
+    @ResponseBody
+    public void save20(@RequestHeader(value = "User-Agent", required = false) String userAgent) {
+        System.out.println(userAgent);
+    }
+
     @RequestMapping(value = "/quick19")
     @ResponseBody
     public void save19(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
