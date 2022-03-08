@@ -71,6 +71,10 @@
     - `/user POST`：新增 user
   - 上述 url 地址 `/user/1` 中的 1 就是要获得的请求参数，在 SpringMVC 中可以使用占位符进行参数绑定。地址 `/user/1` 可以写成 `/user/{id}`，占位符{id}对应的就是1的值
   - 在业务方法中我们可以使用 @PathVariable 注解进行占位符的匹配获取工作
+- 获得 Servlet 相关 API ：通过参数注入
+  - HttpServletRequest
+  - HttpServletResponse
+  - HttpSession
 
 
 
