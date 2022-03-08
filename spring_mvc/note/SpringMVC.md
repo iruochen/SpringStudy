@@ -75,8 +75,16 @@
   - HttpServletRequest
   - HttpServletResponse
   - HttpSession
-
-
+  
+#### 文件上传
+- 文件上传客户端三要素
+  - 表单项：type="file"
+  - 表单的提交方式；post
+  - 表单的enctype属性是多部分表单形式，及 `enctype="multipart/form-data"`
+- 文件上传原理
+  - 当 form 表单修改为多部份表单时，request.getParameter() 将失效
+  - `enctype="application/x-www-form-urlencoded"`时，form 表单的征文提交内容是：`key=value&key=value&key=value`
+  - `enctype="multipart/form-data"` 时，请求正文内容就变成多部分形式
 
 ## POST 请求乱码问题
 - 配置 filter
