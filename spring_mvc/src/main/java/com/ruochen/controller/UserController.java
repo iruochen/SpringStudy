@@ -7,11 +7,13 @@ import com.ruochen.domain.VO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
@@ -20,6 +22,15 @@ import java.util.List;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick22")
+    @ResponseBody
+    public void save22(String username, MultipartFile uploadFile) throws IOException {
+        System.out.println(username);
+        // 获得上传文件的名称
+        String originalFilename = uploadFile.getOriginalFilename();
+        uploadFile.transferTo(new File("C:\\upload\\" + originalFilename));
+    }
+
     @RequestMapping(value = "/quick21")
     @ResponseBody
     public void save21(@CookieValue(value = "JSESSIONID") String jsessionId) {

@@ -86,6 +86,11 @@
   - `enctype="application/x-www-form-urlencoded"`时，form 表单的征文提交内容是：`key=value&key=value&key=value`
   - `enctype="multipart/form-data"` 时，请求正文内容就变成多部分形式
 
+#### 单文件上传步骤
+- 导入 fileupload 和 io 坐标
+- 配置文件上传解析器
+- 编写文件上传代码
+
 ## POST 请求乱码问题
 - 配置 filter
 - 配置后仍乱码，tomcat 设置 `VM options` 添加 `-Dfile.encoding=UTF-8`，重启 tomcat
