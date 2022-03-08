@@ -22,13 +22,25 @@ import java.util.List;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @RequestMapping(value = "/quick23")
+    @ResponseBody
+    public void save23(String username, MultipartFile[] uploadFile, MultipartFile uploadFile2) throws IOException {
+        System.out.println(username);
+        for (MultipartFile file : uploadFile) {
+            String originalFilename = file.getOriginalFilename();
+            file.transferTo(new File("C:\\upload\\" + originalFilename));
+        }
+    }
+
     @RequestMapping(value = "/quick22")
     @ResponseBody
-    public void save22(String username, MultipartFile uploadFile) throws IOException {
+    public void save22(String username, MultipartFile uploadFile, MultipartFile uploadFile2) throws IOException {
         System.out.println(username);
         // 获得上传文件的名称
         String originalFilename = uploadFile.getOriginalFilename();
         uploadFile.transferTo(new File("C:\\upload\\" + originalFilename));
+        String originalFilename2 = uploadFile2.getOriginalFilename();
+        uploadFile2.transferTo(new File("C:\\upload\\" + originalFilename2));
     }
 
     @RequestMapping(value = "/quick21")
