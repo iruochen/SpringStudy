@@ -8,7 +8,7 @@
 ">
 
     <!--加载jdbc.properties-->
-    <context:property-placeholder location="jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--配置数据源对象-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
