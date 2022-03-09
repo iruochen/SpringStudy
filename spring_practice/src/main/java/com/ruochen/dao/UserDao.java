@@ -10,4 +10,8 @@ public interface UserDao {
     Long save(User user);
 
     void saveUserRoleRel(Long userId, Long[] roleIds);
+
+    void delUserRoleRel(Long userId);
+
+    void del(Long userId);
 }
