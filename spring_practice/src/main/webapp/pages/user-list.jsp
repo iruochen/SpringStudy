@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <!-- 页面meta -->
@@ -145,31 +146,21 @@
                                     </thead>
                                     <tbody>
 
-                                    <tr>
-                                        <td><input name="ids" type="checkbox"></td>
-                                        <td>1</td>
-                                        <td>张三</td>
-                                        <td>zhangsan@itcast.cn</td>
-                                        <td>13888888888</td>
-                                        <td class="text-center">
-                                            课程研究员&nbsp;讲师&nbsp;
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="javascript:void(0);" class="btn bg-olive btn-xs">删除</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td><input name="ids" type="checkbox"></td>
-                                        <td>2</td>
-                                        <td>李四</td>
-                                        <td>lisi@itcast.cn</td>
-                                        <td>13999999999</td>
-                                        <td class="text-center">
-                                            讲师&nbsp;
-                                        </td>
-                                    </tr>
-
+                                    <c:forEach items="${userList}" var="user">
+                                        <tr>
+                                            <td><input name="ids" type="checkbox"></td>
+                                            <td>${user.id}</td>
+                                            <td>${user.username}</td>
+                                            <td>${user.email}</td>
+                                            <td>${user.phoneNum}</td>
+                                            <td class="text-center">
+                                                课程研究员&nbsp;讲师&nbsp;
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="javascript:void(0);" class="btn bg-olive btn-xs">删除</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
 
                                 </table>
