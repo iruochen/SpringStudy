@@ -39,6 +39,7 @@
     <!--配置UserService-->
     <bean id="userService" class="com.ruochen.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
+        <property name="roleDao" ref="roleDao"/>
     </bean>
     <!--配置UserDao-->
     <bean id="userDao" class="com.ruochen.dao.impl.UserDaoImpl">
