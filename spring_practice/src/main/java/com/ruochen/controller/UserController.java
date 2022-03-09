@@ -1,6 +1,8 @@
 package com.ruochen.controller;
 
+import com.ruochen.domain.Role;
 import com.ruochen.domain.User;
+import com.ruochen.service.RoleService;
 import com.ruochen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,17 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private RoleService roleService;
+
+    @RequestMapping("/saveUI")
+    public ModelAndView saveUI() {
+        ModelAndView modelAndView = new ModelAndView();
+        List<Role> roleList = roleService.list();
+        modelAndView.addObject("roleList", roleList);
+        modelAndView.setViewName("user-add");
+        return modelAndView;
+    }
 
     @RequestMapping("/list")
     public ModelAndView list() {
