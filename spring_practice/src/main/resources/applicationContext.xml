@@ -23,4 +23,16 @@
         <!--注入数据源-->
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <!--配置RoleService-->
+    <bean id="roleService" class="com.ruochen.service.impl.RoleServiceImpl">
+        <!--注入RoleDao-->
+        <property name="roleDao" ref="roleDao"/>
+    </bean>
+
+    <!--配置RoleDao-->
+    <bean id="roleDao" class="com.ruochen.dao.impl.RoleDaoImpl">
+        <!--注入JdbcTemplate-->
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 </beans>
