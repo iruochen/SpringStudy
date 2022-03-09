@@ -20,6 +20,13 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
+    @RequestMapping("/save")
+    public String save(User user, Long[] roleIds) {
+        userService.save(user, roleIds);
+        return "redirect:/user/list";
+    }
+
+
     @RequestMapping("/saveUI")
     public ModelAndView saveUI() {
         ModelAndView modelAndView = new ModelAndView();

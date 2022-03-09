@@ -34,4 +34,13 @@ public class UserServiceImpl implements UserService {
         }
         return userList;
     }
+
+    @Override
+    public void save(User user, Long[] roleIds) {
+        // 1. 向 sys_user 中存储数据
+        // user 中id 为空， save 后才会生成 id
+        Long userId = userDao.save(user);
+        // 2. 向 sys_user_role 关系表中存储多条数据
+        userDao.saveUserRoleRel(userId, roleIds);
+    }
 }
