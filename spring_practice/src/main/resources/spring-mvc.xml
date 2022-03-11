@@ -8,7 +8,11 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 ">
-    <!--mvc注解驱动-->
+    <!--
+        mvc注解驱动
+        自动加载处理器映射器和处理器适配器
+        自动将bean转换为json返回
+    -->
     <mvc:annotation-driven/>
 
     <!--配置视图解析器-->
