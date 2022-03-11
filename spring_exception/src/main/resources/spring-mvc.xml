@@ -28,6 +28,7 @@
     <context:component-scan base-package="com.ruochen.controller"/>
 
     <!--配置异常处理器-->
+    <!--
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="error"/>
         <property name="exceptionMappings">
@@ -37,5 +38,9 @@
             </map>
         </property>
     </bean>
+    -->
+
+    <!--自定义异常处理器-->
+    <bean class="com.ruochen.resolver.MyExceptionResolver"/>
 
 </beans>

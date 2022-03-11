@@ -12,5 +12,6 @@
     </head>
     <body>
         <h1>通用错误提示页面</h1>
+        <h1>${info}</h1>
     </body>
 </html>
