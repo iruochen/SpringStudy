@@ -5,6 +5,7 @@ import com.ruochen.dao.UserDao;
 import com.ruochen.domain.Role;
 import com.ruochen.domain.User;
 import com.ruochen.service.UserService;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.List;
 
@@ -50,5 +51,15 @@ public class UserServiceImpl implements UserService {
         userDao.delUserRoleRel(userId);
         // 2. 删除 sys_user 表
         userDao.del(userId);
+    }
+
+    @Override
+    public User login(String username, String password) {
+        try {
+            User user = userDao.findByUsernameAndPassword(username, password);
+            return user;
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 }

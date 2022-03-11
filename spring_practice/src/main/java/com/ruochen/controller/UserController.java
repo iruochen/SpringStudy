@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -20,6 +21,17 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RoleService roleService;
+
+    @RequestMapping("/login")
+    public String login(String username, String password, HttpSession session) {
+        User user = userService.login(username, password);
+        if (user != null) {
+            // 登录成功，将 user 存储到session
+            session.setAttribute("user", user);
+            return "redirect:/index.jsp";
+        }
+        return "redirect:/login.jsp";
+    }
 
     // Restful 风格
     @RequestMapping("/del/{userId}")
