@@ -38,4 +38,7 @@ public interface OrderMapper {
             )
     })
     List<Order> findAll();
+
+    @Select("select * from orders where uid=#{uid}")
+    List<Order> findByUid(int uid);
 }
