@@ -18,7 +18,8 @@
         <!--声明切面-->
         <aop:aspect ref="myAspect">
             <!--切面：切点+通知-->
-            <aop:before method="before" pointcut="execution(public void com.ruochen.aop.Target.save())"/>
+            <!--<aop:before method="before" pointcut="execution(public void com.ruochen.aop.Target.save())"/>-->
+            <aop:before method="before" pointcut="execution(* com.ruochen.aop.*.*(..))"/>
         </aop:aspect>
     </aop:config>
 
