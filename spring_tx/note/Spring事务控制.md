@@ -26,3 +26,8 @@
 | boolean isNewTransaction() | 是否是新事务 |
 | boolean isRollbackOnly() | 事务是否回滚 |
 
+## 基于 XML 的声明式事务控制
+### 实现
+- 谁是切点？ => 业务方法
+- 谁是通知？ => 事务控制
+- 配置切面？
