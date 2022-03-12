@@ -1,12 +1,24 @@
 package com.ruochen.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private int id;
     private String username;
     private String password;
     private Date birthday;
+
+    // 描述当前用户存在哪些订单
+    private List<Order> orderList;
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public int getId() {
         return id;
@@ -47,6 +59,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
+                ", orderList=" + orderList +
                 '}';
     }
 }
