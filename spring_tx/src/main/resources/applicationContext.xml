@@ -36,8 +36,18 @@
 
     <!--通知 事务的增强-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!--设置事务的属性信息-->
         <tx:attributes>
+            <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
             <tx:method name="*"/>
+            <!--
+                method name="*"：哪些方法被增强 "*"代表任意方法
+                isolation：隔离级别
+                propagation：传播行为
+                timeout：超时时间
+                read-only：是否只读
+            -->
+            <!--<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>-->
         </tx:attributes>
     </tx:advice>
 
