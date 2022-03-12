@@ -10,6 +10,6 @@
 
     <select id="findAll" resultType="account">
         select *
-        from account;
+        from account
     </select>
 </mapper>

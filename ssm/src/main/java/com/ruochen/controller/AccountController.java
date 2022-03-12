@@ -21,7 +21,7 @@ public class AccountController {
     @RequestMapping("/save")
     @ResponseBody
     public String save(Account account) {
-        accountService.save(account);
+        System.out.println(account);
         return "保存成功";
     }
 
