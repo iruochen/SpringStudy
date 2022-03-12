@@ -53,7 +53,8 @@
 
     <!--配置事务的aop织入-->
     <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ruochen.service.impl.*.*(..))"></aop:advisor>
+        <aop:pointcut id="txPointcut" expression="execution(* com.ruochen.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
 
 </beans>
