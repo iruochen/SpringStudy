@@ -35,5 +35,19 @@ public interface UserMapper {
             )
     })
     List<User> findUserAndOrderAll();
+
+    @Select("select * from user")
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "username", property = "username"),
+            @Result(column = "password", property = "password"),
+            @Result(
+                    property = "roleList",
+                    column = "id",
+                    javaType = List.class,
+                    many = @Many(select = "com.ruochen.mapper.RoleMapper.findByUid")
+            )
+    })
+    List<User> findUserAndRoleAll();
 }
 

@@ -27,6 +27,14 @@ public class MybatisTest3 {
     }
 
     @Test
+    public void testFindUserAndRoleAll() {
+        List<User> userAndRoleAll = mapper.findUserAndRoleAll();
+        for (User user : userAndRoleAll) {
+            System.out.println(user);
+        }
+    }
+
+    @Test
     public void testFindUserAndOrderAll() {
         List<User> userAndOrderAll = mapper.findUserAndOrderAll();
         for (User user : userAndOrderAll) {
