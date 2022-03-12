@@ -14,4 +14,9 @@
         from user
         where id = ${id}
     </select>
+
+    <select id="fildAll" resultType="user">
+        select *
+        from user
+    </select>
 </mapper>
