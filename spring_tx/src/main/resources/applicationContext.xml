@@ -3,11 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 ">
+
+    <!--组件扫描-->
+    <context:component-scan base-package="com.ruochen"/>
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
@@ -20,41 +25,37 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="accountDao" class="com.ruochen.dao.impl.AccountDaoImpl">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>
-
-    <!--目标对象 内部的方法就是切点-->
-    <bean id="accountService" class="com.ruochen.service.impl.AccountServiceImpl">
-        <property name="accountDao" ref="accountDao"/>
-    </bean>
-
     <!--配置平台事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <!--通知 事务的增强-->
+    <!--
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <!--设置事务的属性信息-->
+        &lt;!&ndash;设置事务的属性信息&ndash;&gt;
         <tx:attributes>
             <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
             <tx:method name="*"/>
-            <!--
+            &lt;!&ndash;
                 method name="*"：哪些方法被增强 "*"代表任意方法
                 isolation：隔离级别
                 propagation：传播行为
                 timeout：超时时间
                 read-only：是否只读
-            -->
-            <!--<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>-->
+            &ndash;&gt;
+            &lt;!&ndash;<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" timeout="-1" read-only="false"/>&ndash;&gt;
         </tx:attributes>
     </tx:advice>
 
-    <!--配置事务的aop织入-->
+    &lt;!&ndash;配置事务的aop织入&ndash;&gt;
     <aop:config>
         <aop:pointcut id="txPointcut" expression="execution(* com.ruochen.service.impl.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
+    -->
+
+    <!--事务的注解驱动-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
