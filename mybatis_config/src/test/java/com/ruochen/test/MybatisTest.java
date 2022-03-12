@@ -1,6 +1,7 @@
 package com.ruochen.test;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ruochen.domain.User;
 import com.ruochen.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
@@ -28,6 +29,18 @@ public class MybatisTest {
         for (User user : userList) {
             System.out.println(user);
         }
+
+        // 获得与分页相关的参数
+        PageInfo<User> pageInfo = new PageInfo<User>(userList);
+        System.out.println("当前页：" + pageInfo.getPageNum());
+        System.out.println("每页显示条数：" + pageInfo.getPageSize());
+        System.out.println("总条数：" + pageInfo.getTotal());
+        System.out.println("总页数：" + pageInfo.getPages());
+        System.out.println("上一页：" + pageInfo.getPrePage());
+        System.out.println("下一页：" + pageInfo.getNextPage());
+        System.out.println("是否是第一页：" + pageInfo.isIsFirstPage());
+        System.out.println("是否是最后一页：" + pageInfo.isIsLastPage());
+
         sqlSession.close();
     }
 
