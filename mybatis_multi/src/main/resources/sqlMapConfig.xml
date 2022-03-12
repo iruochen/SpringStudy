@@ -11,6 +11,7 @@
     <typeAliases>
         <typeAlias type="com.ruochen.domain.User" alias="user"/>
         <typeAlias type="com.ruochen.domain.Order" alias="order"/>
+        <typeAlias type="com.ruochen.domain.Role" alias="role"/>
     </typeAliases>
 
     <!--数据源环境-->

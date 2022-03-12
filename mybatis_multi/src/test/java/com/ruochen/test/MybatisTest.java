@@ -16,6 +16,20 @@ import java.util.List;
 
 public class MybatisTest {
     @Test
+    public void test3() throws IOException {
+        String resource = "sqlMapConfig.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> userAndRoleAll = mapper.findUserAndRoleAll();
+        for (User user : userAndRoleAll) {
+            System.out.println(user);
+        }
+        sqlSession.close();
+    }
+
+    @Test
     public void test2() throws IOException {
         String resource = "sqlMapConfig.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
