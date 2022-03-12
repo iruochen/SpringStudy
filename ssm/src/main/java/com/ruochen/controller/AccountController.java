@@ -18,10 +18,10 @@ public class AccountController {
     private AccountService accountService;
 
     // 保存
-    @RequestMapping("/save")
+    @RequestMapping(value = "/save", produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String save(Account account) {
-        System.out.println(account);
+        accountService.save(account);
         return "保存成功";
     }
 
